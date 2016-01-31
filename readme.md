@@ -4,3 +4,4 @@
 line
 4. install Gulp nodemon (npm install gulp-nodemon --save)
 5. install Mongoose (npm install mongoose --save)
+6. install body-parser (npm install body-parser --save)
