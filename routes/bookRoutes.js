@@ -23,7 +23,11 @@ bookRouter.use('/:bookId', function(req, res,next){
 })
 bookRouter.route('/:bookId')
   .get(function(req,res){
-        res.json(req.book);
+        var returnBooks = req.book.toJSON();
+        returnBooks.links = {};
+        var newLink = 'http://'+req.headers.host + '/api/books/?genre=' + returnBooks.genre;
+        returnBooks.links.FilterByThisGenre = newLink.replace(' ', '%20');
+        res.json(returnBooks);
   })
   .put(function(req, res){
         req.book.title = req.body.title;
